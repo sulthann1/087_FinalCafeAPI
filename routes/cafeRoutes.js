@@ -6,7 +6,7 @@ import {
 
 import {
   authenticateApiKey
-} from "../middleware/apiKeyMiddleware.js";
+} from "../middleware/apikeyMiddleware.js";
 
 const router = express.Router();
 
