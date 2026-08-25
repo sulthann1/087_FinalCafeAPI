@@ -1,55 +1,13 @@
-import {
-  Router
-} from "express";
+import express from "express";
 
 import {
   register,
-  login,
-  getMe,
-  createApiKey,
-  getApiKeys
+  login
 } from "../controllers/authController.js";
 
-import {
-  requireJWT
-} from "../middleware/jwtMiddleware.js";
+const router = express.Router();
 
-
-const router =
-  Router();
-
-
-router.post(
-  "/register",
-  register
-);
-
-
-router.post(
-  "/login",
-  login
-);
-
-
-router.get(
-  "/me",
-  requireJWT,
-  getMe
-);
-
-
-router.post(
-  "/api-keys",
-  requireJWT,
-  createApiKey
-);
-
-
-router.get(
-  "/api-keys",
-  requireJWT,
-  getApiKeys
-);
-
+router.post("/register", register);
+router.post("/login", login);
 
 export default router;

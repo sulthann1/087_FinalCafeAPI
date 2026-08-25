@@ -1,41 +1,19 @@
-import {
-  Router
-} from "express";
+import express from "express";
 
 import {
-  getCafes,
-  getCafeById,
-  getCafeStats
+  getCafes
 } from "../controllers/cafeController.js";
 
 import {
-  requireApiKey
+  authenticateApiKey
 } from "../middleware/apiKeyMiddleware.js";
 
-
-const router =
-  Router();
-
+const router = express.Router();
 
 router.get(
   "/",
-  requireApiKey,
+  authenticateApiKey,
   getCafes
 );
-
-
-router.get(
-  "/meta/stats",
-  requireApiKey,
-  getCafeStats
-);
-
-
-router.get(
-  "/:id",
-  requireApiKey,
-  getCafeById
-);
-
 
 export default router;
